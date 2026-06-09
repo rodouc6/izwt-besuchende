@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gäste des IZWT seit 2005</title>
+<title>Guests of the IZWT since 2005</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #ffffff; color: #1c2d3a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding: 32px 24px; max-width: 960px; margin: 0 auto; }
@@ -41,27 +41,27 @@
 </head>
 <body>
 
-<h1>Gäste des IZWT seit 2005</h1>
-<p class="subtitle">Vortragende, Workshop-Leitende und Teilnehmende</p>
+<h1>Guests of the IZWT since 2005</h1>
+<p class="subtitle">Speakers, workshop leaders and participants</p>
 
 <div class="stats">
   <div class="stat">
     <div class="stat-number" id="stat-total">–</div>
-    <div class="stat-label">Vortragende &amp; Gäste</div>
+    <div class="stat-label">Speakers &amp; guests</div>
   </div>
   <div class="stat">
     <div class="stat-number" id="stat-years">–</div>
-    <div class="stat-label">Jahre Institutsgeschichte</div>
+    <div class="stat-label">Years of institute history</div>
   </div>
   <div class="stat">
     <div class="stat-number" id="stat-events">–</div>
-    <div class="stat-label">Veranstaltungen</div>
+    <div class="stat-label">Events</div>
   </div>
 </div>
 
 <div class="slider-box">
   <div class="slider-label">
-    Zeitraum:&nbsp;<span id="range-label">–</span>
+    Period:&nbsp;<span id="range-label">–</span>
   </div>
   <div class="range-wrap">
     <div class="track-bg"></div>
@@ -80,12 +80,12 @@ const DATA = [{"name": "Aagard, Rie", "year": 2024, "semester": "WS 2024/25", "o
 const STATS = {"total": 737, "events": 114, "min_year": 2005, "max_year": 2026};
 
 // Statistiken befüllen
-document.getElementById('stat-total').textContent = STATS.total.toLocaleString('de-DE') + '+';
+document.getElementById('stat-total').textContent = STATS.total.toLocaleString('en-US') + '+';
 document.getElementById('stat-years').textContent = (STATS.max_year - STATS.min_year + 1);
 document.getElementById('stat-events').textContent = STATS.events;
 
 // Tags bauen (einmalig, alphabetisch sortiert)
-const sorted = [...DATA].sort((a, b) => a.name.localeCompare(b.name, 'de'));
+const sorted = [...DATA].sort((a, b) => a.name.localeCompare(b.name, 'en'));
 const cloud = document.getElementById('cloud');
 sorted.forEach(entry => {
   let el;
@@ -95,7 +95,7 @@ sorted.forEach(entry => {
     el.target = '_blank';
     el.rel = 'noopener noreferrer';
     el.className = 'tag has-orcid';
-    el.setAttribute('aria-label', entry.name + ', ORCID-Profil öffnen');
+    el.setAttribute('aria-label', entry.name + ', open ORCID profile');
   } else {
     el = document.createElement('span');
     el.className = 'tag no-orcid';
@@ -145,8 +145,8 @@ function filterCloud() {
       el.setAttribute('hidden', '');
     }
   });
-  document.getElementById('range-label').textContent = lo + '–' + hi + ' · ' + visible + ' Personen';
-  document.getElementById('count-label').textContent = visible + ' Personen im gewählten Zeitraum';
+  document.getElementById('range-label').textContent = lo + '–' + hi + ' · ' + visible + ' people';
+  document.getElementById('count-label').textContent = visible + ' people in the selected period';
   updateFill();
 }
 
